@@ -1,0 +1,61 @@
+% file: preamble.tex
+
+\usepackage{xeCJK}
+\usepackage{fontspec}
+
+\usetheme{CambridgeUS} % try Madrid
+\usecolortheme{beaver} % try beaver, dolphin, seahorse
+% \usefonttheme[onlymath]{serif} % try "professionalfonts"
+\usefonttheme{serif}  % standard font (same with that in ``standalone'')
+% \setCJKmainfont{Microsoft YaHei} % try SimSun
+
+\setbeamersize{text margin left = 2em, text margin right = 1em}
+\setbeamercolor{footnote mark}{fg = teal}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+
+\usepackage{graphicx, subcaption}
+
+\usepackage{caption}
+\DeclareCaptionLabelSeparator{none}{}
+\captionsetup{labelsep = none}
+
+\makeatletter
+\let\@@magyar@captionfix\relax
+\makeatother
+
+\newcommand{\fignocaption}[2]{
+  \begin{figure}[htp]
+    \centering
+    \includegraphics[#1]{#2}
+  \end{figure}
+}
+
+% for fig with caption: #1: width/size; #2: fig file; #3: fig caption
+\newcommand{\fig}[3]{
+  \begin{figure}[htp]
+    \centering
+      \includegraphics[#1]{#2}
+      \caption{#3}
+  \end{figure}
+}
+
+% colors
+\definecolor{DarkRed}{rgb}{0.55, 0.0, 0.0}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\purple}[1]{\textcolor{purple}{#1}}
+\newcommand{\cyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\violet}[1]{\textcolor{violet}{#1}}
+\newcommand{\lgray}[1]{\textcolor{lightgray}{#1}}
+\newcommand{\teal}[1]{\textcolor{teal}{#1}}
+\newcommand{\brown}[1]{\textcolor{brown}{#1}}
+
+\newcommand{\hl}[2]{\fcolorbox{#1}{#1!60}{#2}}
+
+\newcommand{\thankyou}{
+  \begin{frame}[noframenumbering]
+	\fignocaption{width = 0.618\textwidth}{figs/thankyou}
+  \end{frame}
+}
