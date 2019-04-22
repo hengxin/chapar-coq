@@ -14,8 +14,15 @@
 \setbeamertemplate{itemize items}[default]
 \setbeamertemplate{enumerate items}[default]
 
-\usepackage{graphicx, subcaption}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = purple,
+    filecolor = magenta,      
+    urlcolor = cyan,
+}
 
+\usepackage{graphicx, subcaption}
 \usepackage{caption}
 \DeclareCaptionLabelSeparator{none}{}
 \captionsetup{labelsep = none}
@@ -24,21 +31,16 @@
 \let\@@magyar@captionfix\relax
 \makeatother
 
-\newcommand{\fignocaption}[2]{
+\newcommand{\fig}[2]{
   \begin{figure}[htp]
     \centering
     \includegraphics[#1]{#2}
   \end{figure}
 }
 
-% for fig with caption: #1: width/size; #2: fig file; #3: fig caption
-\newcommand{\fig}[3]{
-  \begin{figure}[htp]
-    \centering
-      \includegraphics[#1]{#2}
-      \caption{#3}
-  \end{figure}
-}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, decorations.pathreplacing}
+\usepackage{adjustbox}
 
 % colors
 \definecolor{DarkRed}{rgb}{0.55, 0.0, 0.0}
@@ -54,8 +56,10 @@
 
 \newcommand{\hl}[2]{\fcolorbox{#1}{#1!60}{#2}}
 
+\newcommand{\acos}{\blue{$\textsl{\small COS}_{\mathcal{A}}$}} % abstract causal operational semantics
+
 \newcommand{\thankyou}{
   \begin{frame}[noframenumbering]
-	\fignocaption{width = 0.618\textwidth}{figs/thankyou}
+	\fig{width = 0.618\textwidth}{figs/thankyou}
   \end{frame}
 }

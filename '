@@ -113,13 +113,6 @@
 
 %%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-  \begin{alignat*}{4}
-	\onslide<1->{&c \;&&:\;&&C \hspace{14em} && \text{Clock} \\[3pt]}
-	\onslide<2->{&a &&:&& A = N \to C && \text{Applied} \\[3pt]}
-	\onslide<3->{&d &&:&& D = \mathcal{P}(N \times C) && \text{Dependencies} \\[3pt]}
-	\onslide<4->{&u &&:&& U = (K \times V \times D)^{\ast} && \text{Updates} \\[3pt]}
-	\onslide<5->{&m &&:&& M = K \to (V \times N \times C \times D) && \text{Store}}
-  \end{alignat*}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
