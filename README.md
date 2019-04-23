@@ -10,6 +10,7 @@
 
 #### Learning
 - Chapar for Op-based CRDT
+  - Paper: 
 - Chapar for State-based CRDT
   - Paper: FORTE14: Formal Specification and Verification of CRDTs
 
@@ -21,3 +22,4 @@
 - Coq for network (Morning Paper)
 
 ## TODO
+- [ ] Whole picture for Chapar
