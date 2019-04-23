@@ -18,5 +18,6 @@
 - Coq for equivalence between Op-based CRDT and State-based CRDT
 - Coq for Jupiter (AbsJupiter)
 - Coq for the "vis + ar" framework
+- Coq for network (Morning Paper)
 
 ## TODO

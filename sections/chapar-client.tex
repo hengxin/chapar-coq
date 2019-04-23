@@ -1,0 +1,124 @@
+% chapar-client.tex
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.20\textwidth}{figs/prog}
+
+  \pause
+  \fig{width = 0.55\textwidth}{figs/example-picture}
+
+  \pause
+  \fig{width = 0.55\textwidth}{figs/program-picture}
+  \pause
+  \begin{center}
+	\red{$assert(post \neq \bot \;\blue{\implies}\; photo \neq \bot)$}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.40\textwidth}{figs/prog-acos}
+
+  \pause
+  \begin{quote}
+	\centering
+	\red{Abstract:} \\[3pt]
+	without referring to the details of specific implementations; \\[2pt]
+	do not involving message passing.
+  \end{quote}
+
+  \pause
+  \begin{quote}
+	\centering
+	\red{Operational:} \\[3pt]
+	labelled transition system \\[2pt]
+	executable \cyan{\small (like TLA+)}
+  \end{quote}
+
+  \pause
+  \begin{quote}
+	\centering
+	\red{Causal:} \\[3pt]
+	\teal{explicitly track happens-before dependencies}
+  \end{quote}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \[
+	\red{W_{\mathcal{A}} \;:\; N \to (S \times D \times U \times A \times M)}
+  \]
+
+  \begin{alignat*}{4}
+	\onslide<2->{&c \;&&:\;&&C \hspace{14em} && \text{Clock} \\[3pt]}
+	\onslide<3->{&d &&:&& D = \mathcal{P}(N \times C) && \text{Dependencies} \\[3pt]}
+	\onslide<4->{&u &&:&& U = (K \times V \times D)^{\ast} && \text{Updates} \\[3pt]}
+	\onslide<5->{&a &&:&& A = N \to C && \text{Applied} \\[3pt]}
+	\onslide<6->{&m &&:&& M = K \to (V \times N \times C \times D) && \text{Store}}
+  \end{alignat*}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.60\textwidth}{figs/acos}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.35\textwidth}{figs/acos-get}
+
+  \pause
+  \vspace{-0.50cm}
+  \[
+	W_{\mathcal{A}}[n \mapsto (\red{x \gets get(k);s}, d, u, a, m)]
+  \]
+
+  \pause
+  \[
+	m(k) = (v, n'', c'', \red{d''})
+  \]
+
+  \pause
+  \[
+	\xrightarrow{\blue{n''}, \blue{c''}, n \;\triangleright\; get(k): v}_{\mathcal{A}}
+  \]
+
+  \pause
+  \[
+	d' = \begin{cases}
+	  d \cup \{\blue{(n'', c'')}\} \cup \red{d''} & \text{if } n'' \neq n_0 \\
+	  d & \text{otherwise}
+	\end{cases}
+  \]
+
+  \pause
+  \[
+	W_{\mathcal{A}}[n \mapsto (s[x := v], \red{d'}, u, a, m)]
+  \]
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \begin{center}
+	\resizebox{0.70\textwidth}{!}{\input{tikz/prog-acos-cc-mc}}
+  \end{center}
+
+  \begin{columns}
+	\column{0.50\textwidth}
+	  \fig{width = 0.80\textwidth}{figs/program-picture}
+	\column{0.50\textwidth}
+	  \fig{width = 0.60\textwidth}{figs/acos}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.80\textwidth}{figs/prog-mc-acos-impl-cc}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%

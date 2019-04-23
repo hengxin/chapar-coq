@@ -1,0 +1,117 @@
+% chapar-impl.tex
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \begin{center}
+	\resizebox{0.70\textwidth}{!}{\input{tikz/acos-impl}}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.40\textwidth}{figs/cos-impl}
+
+  \pause
+  \vspace{-0.50cm}
+  \[
+	\red{W_{\mathcal{C}} \;:\; H \times T}
+  \]
+
+  \vspace{-0.50cm}
+  \begin{alignat*}{4}
+	\onslide<3->{&\red{h} \;&&:\;&&H = N \to (S \times \text{State}(V)) \hspace{6em} && \text{Hosts} \\[3pt]}
+	\onslide<3->{&\red{t} &&:&& T = \mathcal{P}(M) && \text{Transit} \\[3pt]}
+	\onslide<4->{&\blue{m} &&:&& M = N \times K \times V \times \text{Update}(V) && \text{Message} \\[3pt]
+	&\sigma &&:&& \text{State}(V) && \text{Alg State} \\[3pt]
+	&u &&:&& \text{Update}(V) && \text{Alg Update}}
+  \end{alignat*}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.50\textwidth}{figs/cos}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.30\textwidth}{figs/cos-get}
+
+  \pause
+  \begin{center}
+	\teal{Parametric on the implementation $\mathbb{I}$}
+  \end{center}
+
+  \pause
+  \[
+	\red{\text{get}(V, n, \sigma, k) \leadsto^{\ast} (v, \sigma)}
+  \]
+
+  \pause
+  \[
+	\blue{\xrightarrow{n \;\triangleright\; get(k): v}_{\mathcal{C}(\mathbb{I})}}
+  \]
+
+  \pause
+  \begin{center}
+	\red{Operational:} Model the executions of the implementation $\mathbb{I}$
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.40\textwidth}{figs/acos-icos-cos}
+
+  \pause
+  \begin{center}
+	\teal{Parametric on the implementation $\mathbb{I}$}
+  \end{center}
+
+  \pause
+  \begin{center}
+	$\to_{\mathcal{I}(\mathbb{I})}$ is similar to non-instrumented $\to_{\mathcal{C}(\mathbb{I})}$
+  \end{center}
+
+  \pause
+  \begin{quote}
+	\centering
+	\red{``Uniquely identify \blue{\emph{put}} operations to track causal dependencies between them.''}
+  \end{quote}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \begin{center}
+	\resizebox{0.65\textwidth}{!}{\input{tikz/acos-reception-icos}}
+  \end{center}
+
+  \only<3>{
+	\begin{theorem}[Sufficiency of Well-Reception]
+	  Every \red{well-receptive} implementation is \red{causally consistent}.
+	\end{theorem}
+  }
+
+  \only<4->{
+	\begin{definition}[Well-Reception]
+	  An implementation is \red{\it well-receptive} 
+	  iff there exists a \blue{\it function} \blue{Rec} for the implementation 
+	  such that th four conditions \red{InitCond, StepCond, CauseCond, and SeqCond} 
+	  are satisfied.
+	\end{definition}
+
+	\[
+	  \blue{c \gets Rec(\sigma, n)}
+	\]
+  }
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.40\textwidth}{figs/wellrec}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%

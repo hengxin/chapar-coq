@@ -1,0 +1,61 @@
+% chapar-overview.tex
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \fig{width = 0.70\textwidth}{figs/chapar-popl16}
+
+  \begin{center}
+	\href{http://adam.chlipala.net/papers/ChaparPOPL16/ChaparPOPL16.pdf}{Chapar@POPL'2016}
+  \end{center}
+
+  \pause
+  \vspace{0.30cm}
+  \input{sections/quote}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \uncover<4->{
+	\begin{definition}[Causally Content]
+	  A client program is \red{causally content} if it avoids assertion failures 
+	  when executed with \acos{}.
+	\end{definition}
+  }
+
+  \begin{center}
+	\resizebox{0.60\textwidth}{!}{\input{tikz/impl-prog}}
+  \end{center}
+
+  \uncover<5->{
+	\begin{definition}[Causally Consistent]
+	  A KV store impl. is \red{causally consistent} if it satisfies \acos{}.
+	\end{definition}
+  }
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \begin{columns}
+	\column{0.40\textwidth}
+	  \fig{width = 1.00\textwidth}{figs/impl-prog-int}
+	\column{0.60\textwidth}
+	  \pause
+	  \begin{description}
+		\item[$\mathbb{P}:$]
+		  \[
+			\text{get, put}
+		  \]
+		\item[\acos$:$]
+		  \[
+			\text{get, put, update}
+		  \]
+		\item[$\mathbb{I}:$]
+		  \[
+			\text{get, put, guard, update}
+		  \]
+	  \end{description}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
